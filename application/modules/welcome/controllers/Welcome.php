@@ -2,8 +2,12 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends MY_Controller {
+    function __construct() {
+        parent::__construct();
+        $this->isLoggedIn();
+    }
 
-	/**
+    /**
 	 * Index Page for this controller.
 	 *
 	 * Maps to the following URL
@@ -21,6 +25,6 @@ class Welcome extends MY_Controller {
 	public function index()
 	{
 		$this->global['pageTitle'] = 'Welcome';
-		$this->load->loadViews('welcome_message', $this->global);
+		$this->loadViews('welcome_message', $this->global);
 	}
 }

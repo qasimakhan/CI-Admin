@@ -52,3 +52,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+/*********** USER DEFINED ROUTES *******************/
+
+$route['loginMe'] = 'login/loginMe';
+$route['dashboard'] = 'users';
+$route['userListing'] = 'users/userListing';
+$route['userListing/(:num)'] = "users/userListing/$1";
+$route['addNew'] = "users/addNew";
+$route['addNewUser'] = "users/addNewUser";
+$route['editOld'] = "users/editOld";
+$route['editOld/(:num)'] = "users/editOld/$1";
+$route['editUser'] = "users/editUser";
+$route['deleteUser'] = "users/deleteUser";
+$route['profile'] = "users/profile";
+$route['profile/(:any)'] = "users/profile/$1";
+$route['profileUpdate'] = "users/profileUpdate";
+$route['profileUpdate/(:any)'] = "users/profileUpdate/$1";
+
+$route['loadChangePass'] = "users/loadChangePass";
+$route['changePassword'] = "users/changePassword";
+$route['changePassword/(:any)'] = "users/changePassword/$1";
+$route['pageNotFound'] = "users/pageNotFound";
+$route['checkEmailExists'] = "users/checkEmailExists";
+$route['login-history'] = "users/loginHistoy";
+$route['login-history/(:num)'] = "users/loginHistoy/$1";
+$route['login-history/(:num)/(:num)'] = "users/loginHistoy/$1/$2";
+
+$route['forgotPassword'] = "login/forgotPassword";
+$route['resetPasswordUser'] = "login/resetPasswordUser";
+$route['resetPasswordConfirmUser'] = "login/resetPasswordConfirmUser";
+$route['resetPasswordConfirmUser/(:any)'] = "login/resetPasswordConfirmUser/$1";
+$route['resetPasswordConfirmUser/(:any)/(:any)'] = "login/resetPasswordConfirmUser/$1/$2";
+$route['createPasswordUser'] = "login/createPasswordUser";
+$route['logout'] = 'login/logout';

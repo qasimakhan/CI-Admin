@@ -13,7 +13,7 @@ class Users extends MY_Controller {
      */
     public function index()
     {
-        $this->global['pageTitle'] = 'CodeInsect : Dashboard';
+        $this->global['pageTitle'] = 'CIAP : Dashboard';
         
         $this->loadViews("dashboard", $this->global, NULL , NULL);
     }
@@ -40,7 +40,7 @@ class Users extends MY_Controller {
             
             $data['userRecords'] = $this->users_model->userListing($searchText, $returns["page"], $returns["segment"]);
             
-            $this->global['pageTitle'] = 'CodeInsect : User Listing';
+            $this->global['pageTitle'] = 'CIAP : User Listing';
             
             $this->loadViews("users", $this->global, $data, NULL);
         }
@@ -60,7 +60,7 @@ class Users extends MY_Controller {
             $this->load->model('users_model');
             $data['roles'] = $this->users_model->getUserRoles();
             
-            $this->global['pageTitle'] = 'CodeInsect : Add New User';
+            $this->global['pageTitle'] = 'CIAP : Add New User';
 
             $this->loadViews("addNew", $this->global, $data, NULL);
         }
@@ -157,7 +157,7 @@ class Users extends MY_Controller {
             $data['roles'] = $this->users_model->getUserRoles();
             $data['userInfo'] = $this->users_model->getUserInfo($userId);
             
-            $this->global['pageTitle'] = 'CodeInsect : Edit User';
+            $this->global['pageTitle'] = 'CIAP : Edit User';
             
             $this->loadViews("editOld", $this->global, $data, NULL);
         }
@@ -256,7 +256,7 @@ class Users extends MY_Controller {
      */
     function pageNotFound()
     {
-        $this->global['pageTitle'] = 'CodeInsect : 404 - Page Not Found';
+        $this->global['pageTitle'] = 'CIAP : 404 - Page Not Found';
         
         $this->loadViews("404", $this->global, NULL, NULL);
     }
@@ -293,7 +293,7 @@ class Users extends MY_Controller {
 
             $data['userRecords'] = $this->users_model->loginHistory($userId, $searchText, $fromDate, $toDate, $returns["page"], $returns["segment"]);
             
-            $this->global['pageTitle'] = 'CodeInsect : User Login History';
+            $this->global['pageTitle'] = 'CIAP : User Login History';
             
             $this->loadViews("loginHistory", $this->global, $data, NULL);
         }        
@@ -307,7 +307,7 @@ class Users extends MY_Controller {
         $data["userInfo"] = $this->users_model->getUserInfoWithRole($this->vendorId);
         $data["active"] = $active;
         
-        $this->global['pageTitle'] = $active == "details" ? 'CodeInsect : My Profile' : 'CodeInsect : Change Password';
+        $this->global['pageTitle'] = $active == "details" ? 'CIAP : My Profile' : 'CIAP : Change Password';
         $this->loadViews("profile", $this->global, $data, NULL);
     }
 

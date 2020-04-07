@@ -70,7 +70,7 @@ class MY_Controller extends MX_Controller {
         $this->global ['pageTitle'] = 'CodeInsect : Access Denied';
 
         $this->load->view ( 'includes/header', $this->global );
-        $this->load->view ( 'access' );
+        $this->load->view ( 'includes/access' );
         $this->load->view ( 'includes/footer' );
     }
 

@@ -5,17 +5,17 @@ require APPPATH."third_party/MX/Controller.php";
 
 class MY_Controller extends MX_Controller {
     protected $global = array ();
-    
+
     protected $role = '';
     protected $vendorId = '';
     protected $name = '';
     protected $roleText = '';
     protected $lastLogin = '';
-            
+
     function __construct() {
         parent::__construct();
     }
-    
+
     /**
      * This function is used to check the access
      */
@@ -48,7 +48,7 @@ class MY_Controller extends MX_Controller {
                     return false;
             }
     }
-    
+
     /**
      * This function used to load views
      * @param {string} $viewName : This is view name
@@ -63,7 +63,17 @@ class MY_Controller extends MX_Controller {
         $this->load->view($viewName, $pageInfo);
         $this->load->view('includes/footer', $footerInfo);
     }
-    
+
+
+    function loadThis()
+    {
+        $this->global ['pageTitle'] = 'CodeInsect : Access Denied';
+
+        $this->load->view ( 'includes/header', $this->global );
+        $this->load->view ( 'includes/access' );
+        $this->load->view ( 'includes/footer' );
+    }
+
     /**
      * This function used to check the user is logged in or not
      */
@@ -85,7 +95,7 @@ class MY_Controller extends MX_Controller {
             $this->global ['last_login'] = $this->lastLogin;
         }
     }
-    
+
     /**
      * This function used provide the pagination resources
      * @param {string} $link : This is page link
